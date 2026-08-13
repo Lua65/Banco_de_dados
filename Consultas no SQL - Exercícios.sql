@@ -1,8 +1,8 @@
 #Exercício 1 – Ordem alfabética
-select nome, idade from clientes order by nome asc;
+select * from clientes order by nome asc;
 
 #Exercício 2 – Ordem decrescente
-select nome, idade from clientes order by nome desc;
+select * from clientes order by nome desc;
 
 #Exercício 3 – Idade crescente
 select nome,idade from clientes order by idade asc; 
@@ -14,17 +14,21 @@ select nome,idade from clientes order by idade desc;
 select * from clientes limit 5;
 
 #Exercício 6 – Combinação de ORDER BY e LIMIT
-select nome, idade from clientes order by idade desc limit 3;
+select * from clientes order by idade desc limit 3;
 
 #Exercício 7 – Clientes mais novos
-select nome,idade from clientes order by idade asc limit 2;
+select * from clientes order by idade asc limit 2;
 
 #Exercício 8 – Cidades em ordem
-select cidade from clientes order by cidade asc;
+select distinct cidade from clientes order by cidade asc;
 
 #Exercício 9 – Visualização rápida
 select * from clientes order by nome asc limit 10;
 
 #Exercício 10 – Desafio final
-select nome, cidade, idade order by clientes 
+select nome, cidade, idade  from clientes where cidade = 'Rio de Janeiro' order by idade  desc limit 5;
+
+select * from clientes where cidade = 'São Paulo';
+
+select * from clientes where idade = 28;
 
