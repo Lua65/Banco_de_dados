@@ -2,6 +2,7 @@ drop database catalogo_filmes;
 CREATE DATABASE catalogo_filmes;
 use catalogo_filmes;
 
+
 CREATE TABLE midias (
 id_midia int primary key auto_increment,
 titulo varchar(100),
@@ -90,3 +91,8 @@ set sql_safe_updates = 0;
 
 update midias set genero = 'Comédia, Sitcom' where titulo = 'Friends';
 select * from midias where  titulo = 'Friends';
+
+
+
+delete from midias where id_midias = 27;
+
