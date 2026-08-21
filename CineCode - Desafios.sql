@@ -116,7 +116,7 @@ select * from filmes where genero = 'Comédia';
 -- Consulta Errada:
 SELECT titulo, genero, ano_lancamento FROM filmes WHERE ano_lancamento 2005 ORDER BY titulo;
 
--- Qual é o erro? ele esqueceu de colocar um >
+-- Qual é o erro? ele esqueceu de colocar um sinal de >
 -- Correção:
 SELECT titulo, genero, ano_lancamento FROM filmes WHERE ano_lancamento > 2005 ORDER BY titulo;
 
@@ -137,21 +137,22 @@ select nome_cliente, estado from clientes where regiao = 'Sul';
 -- O comando roda, mas não retorna nada, mesmo sabendo que existem nulos.
 -- Consulta Errada:
 SELECT * FROM alugueis WHERE nota = 'NULL';
-select * from alugueis where nota; 
 
 select * from alugueis;
 
--- Qual é o erro? __________________________________________________________
+-- Qual é o erro? no lugar do sinal de = era pra ser is null.
 -- Correção:
-
+select * from alugueis where nota is NULL; 
 
 
 -- 19. O aluno tentou listar os atores, mas deu erro.
 -- Consulta Errada:
 SELECT nome_ator, nacionalidade FROM actor;
 
--- Qual é o erro? __________________________________________________________
+-- Qual é o erro? ele escreveu actor
 -- Correção:
+SELECT nome_ator, nacionalidade FROM atores;
+
 
 
 
@@ -164,6 +165,8 @@ select * from filmes;
 
 -- Qual é o erro? __________________________________________________________
 -- Correção
+UPDATE filmes SET genero = 'Fantasia' where titulo like 'Harry Potter%';
+select * from filmes order by titulo  ;
 
 -- -----------------------------------------------------------------------------
 -- DESAFIO EXTRA (Para quem terminar antes)
