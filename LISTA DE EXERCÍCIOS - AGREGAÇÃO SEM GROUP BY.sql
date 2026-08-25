@@ -3,7 +3,7 @@
 */
 
 -- 1. COUNT: Quantos filmes de 'Drama' existem no catálogo?
-select count(*) from filmes;
+select count(*) as tota_drama from filmes where  genero = 'Drama';
 
 -- 2. SUM: Qual seria a receita total se alugássemos todos os filmes de 'Comédia' uma única vez?
 select round(sum(preco_aluguel),2) as 'Receita dos filmes' from filmes where genero = 'Comédia';
@@ -30,13 +30,13 @@ select min(ano_nascimento) as 'Ator/Atriz mais velho(a)' from atores;
 select max(data_nascimento) as 'Cliente mais jovem' from clientes where sexo like 'masculino%';
 
 -- 10. COUNT: Quantos alugueis receberam a nota máxima (10)?
-select count(nota) as 'Quantidade de alugueis que receberam nota máxima' from alugueis;
+select count(nota) as 'Quantidade de alugueis que receberam nota máxima' from alugueis where nota = 10;
 
 -- 11. AVG: Qual é a média das notas dadas para o filme com id_filme = 5 (O Senhor dos Anéis)?
 select avg(nota) as 'Média de notas dada para o filme O senhor dos Anéis' from alugueis where id_filme = 5;
 
 -- 12. SUM: Quantos minutos no total levaria para assistir a todos os filmes de 'Mistério e Suspense' em sequência?
-select sum(duracao) as 'Total de minutos para assistir todos filmes de Mistério e Suspense' from filmes where genero like 'Mistério e Suspense';
+select sum(duracao) as 'Total de minutos para assistir todos filmes de Mistério e Suspense' from filmes where genero = 'Mistério e Suspense';
 
 -- 13. COUNT: Quantas atrizes (sexo feminino) nascidas nos EUA estão cadastradas?
 select count(nacionalidade) as 'Atrizes nascidas nos EUA' from atores where nacionalidade like 'EUA%' and sexo = 'feminino';
@@ -44,7 +44,7 @@ select count(nacionalidade) as 'Atrizes nascidas nos EUA' from atores where naci
 -- 14. AVG: Qual é a média de preço dos filmes que têm duração maior que 150 minutos?
 select avg(preco_aluguel) as 'Média de preço dos filmes com duração de 150'from filmes where duracao > 150;
 
--- 15. COUNT: Quantos alugueis foram realizados no ano de 2018?
+-- 15. COUNT: Quantos alugueis foram realizados no ano de 2018? year
 select count(data_aluguel) as 'Quantidade de alugueis realizados em 2018' from alugueis where data_aluguel like '2018%';
 
 select * from alugueis where data_aluguel = 2018;
