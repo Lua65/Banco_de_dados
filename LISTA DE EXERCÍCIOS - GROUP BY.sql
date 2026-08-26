@@ -1,31 +1,31 @@
-/* LISTA DE EXERCÍCIOS - GROUP BY
+ /* LISTA DE EXERCÍCIOS - GROUP BY
    Foco: Agrupamento de dados com COUNT, AVG, SUM, MAX
 */
 
 -- 1. Filmes por Ano: Quantos filmes foram lançados em cada ano?
-select ano_lancamento, count(*) as quantidade_filmes_ano from filmes group by ano_lancamento having quantidade_filmes_ano;
+select ano_lancamento, count(*) as quantidade_filmes_ano from filmes group by ano_lancamento;
 
 -- 2. Duração Média por Gênero: Qual é a duração média (em minutos) dos filmes de cada gênero?
-select genero, avg(duracao) as duracao_media_minutos_genero from filmes group by genero having duracao_media_minutos_genero;
+select genero, avg(duracao) as duracao_media_minutos_genero from filmes group by genero;
 
 -- 3. Atores por Nacionalidade: Quantos atores e atrizes temos cadastrados de cada nacionalidade?
-select nacionalidade, count(sexo) as atores_atrizes_nacionalidade from atores group by nacionalidade having atores_atrizes_nacionalidade;
+select nacionalidade, count(sexo) as quantidade_atores_nacionalidade from atores group by nacionalidade;
 
 -- 4. Clientes por Estado: Quantos clientes temos em cada Estado brasileiro?
 select estado, count(regiao) as clientes_por_estado from clientes group by estado;
 
 
 -- 5. Receita Potencial por Gênero: Qual é a soma dos preços de aluguel de todos os filmes, agrupados por gênero?
-select genero, sum(preco_aluguel) as soma_alguel_genero from filmes group by genero having soma_alguel_genero;
+select genero, sum(preco_aluguel) as soma_alguel_genero from filmes group by genero;
 
 -- 6. Popularidade dos Filmes (Alugueis por Filme): Quantas vezes cada filme (pelo ID) foi alugado?
-select id_filme, count(*) as filme_id_alugado from alugueis group by id_filme having filme_id_alugado;
+select id_filme, count(*) as total_alugado from alugueis group by id_filme order by total_alugado desc;
 
 -- 7. Comportamento do Cliente (Média de Notas): Qual é a nota média que cada cliente (pelo ID) costuma dar para os filmes?
-select id_cliente, avg(nota) as media_nota from alugueis group by id_cliente having media_nota;
+select id_cliente, avg(nota) as media_nota from alugueis where nota is not null group by id_cliente; #where nota is not null-sumir com clientes que não deram nenhuma nota.
 
 -- 8. Distribuição por Sexo (Atores): Quantos atores são do sexo masculino e quantos são do feminino?
-select sexo, count(*) as atores_masculinos_femininos from atores group by sexo;
+select sexo, count(*) as atores_masculinos_femininos from atores group by sexo; 
 
 -- 9. Alugueis por Dia: Quantos alugueis foram realizados em cada data específica?
 select data_aluguel, count(*) as aluguel_por_data from alugueis group by data_aluguel;

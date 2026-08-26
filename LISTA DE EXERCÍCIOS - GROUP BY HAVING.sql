@@ -28,7 +28,7 @@ select id_filme, round(avg(nota),2) as media_nota from alugueis group by id_film
 
 -- EXERCÍCIO 8: clientes que alugaram 2+ filmes diferentes
 
-select id_cliente, count(*) as quantidade_aluguel from alugueis group by id_cliente having quantidade_aluguel > 2; 
+select id_cliente, count(distinct id_filme) as quantidade_aluguel from alugueis group by id_cliente having quantidade_aluguel >= 2; 
 
 -- EXERCÍCIO 9: anos cuja soma de duração ultrapassa 500
 
